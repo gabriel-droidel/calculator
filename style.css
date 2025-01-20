@@ -71,7 +71,8 @@ html {
     padding:20px;
 }
 
-  .key{
+  .key,
+  .operator{
     padding:10px;
     background-color: rgb(26, 23, 23);
     color:lightgoldenrodyellow;
