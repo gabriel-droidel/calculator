@@ -95,6 +95,7 @@ html {
     gap:1rem;
     padding:1rem;
 }
+
 .keys-box > *:hover{
   cursor: pointer;
   background-color: var(--third-color);

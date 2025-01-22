@@ -69,11 +69,10 @@ function assignOperator(numbers,value){
     // every time an operation is chosen, the stored displayed value is distributed to the proper variable
 
     assignValue(numbers); // assign value stored in display when an operation is chosen
-    evaluate(numbers); // process the calculation if possible
-    numbers.operation=value;
     numbers.displayed=''; // clear number input
     displayNumbers(numbers); // update display with clear input
-    displayResult(numbers);
+    evaluate(numbers); // process the calculation if possible
+    numbers.operation=value;
 }
 
 function equalResult(numbers){
