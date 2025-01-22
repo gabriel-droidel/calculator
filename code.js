@@ -42,7 +42,9 @@ function createObject(){
 function processParsedNumber(numbers, value){
     // get value on key press and add it to the number at the end
     // this value will be later parsed into an integer and assigned to a calculation variable
-    numbers.displayed+=value;
+    if(numbers.displayed.length<6)
+        numbers.displayed+=value;
+
     displayNumbers(numbers);    
 }
 
@@ -110,8 +112,10 @@ function evaluate(numbers){
     // checks if all data is provided than processes the calculation and resets values
     if(numbers.first!==null&&numbers.second!==null&&numbers.operation)
     {
-        numbers.result=processCalculation(numbers); // handle calculation based on operation and operands, assigning the result 
-        numbers.resultDisplayed=numbers.result; // update the display with the result
+        numbers.result=processCalculation(numbers); // handle calculation based on operation and operands, assigning the result
+        if(numbers.result.toString().length>13) // handle results that are too large
+            numbers.result='ERROR';
+        numbers.resultDisplayed=numbers.result;// update the display with the result
         if(numbers.result=='ERROR'){ // handle division by 0 error
             numbers.result=null;
         }
