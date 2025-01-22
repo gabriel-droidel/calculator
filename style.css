@@ -22,6 +22,12 @@ html {
     height: auto;
   }
 
+@font-face {
+  font-family: 'Digital7';
+  src: url('../calculator/assets/digital7font/Digital7-rg1mL.woff2')format('woff2');
+  src: url('../calculator/assets/digital7font/Digital7Italic-BW658.woff2')format('woff2');
+}
+
   /*Page Css*/
   :root{
     --main-color:#f19e0e;
@@ -72,6 +78,7 @@ html {
 }
 
 .result-box{
+  font-family: 'Digital7',sans-serif;
     background-color:var(--complementary-color);
     border-radius: var(--border-radius);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
