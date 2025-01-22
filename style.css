@@ -102,10 +102,12 @@ html {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
   color:var(--secondary-color);
 }
+
   .key,
   .operator,
   #equals,
-  #clear{
+  #clear,
+  #decimal{
     background-color:var(--secondary-color-darker);
     border-radius: var(--border-radius);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -128,7 +130,15 @@ html {
 
 #clear{
   background-color:rgb(189, 10, 10);
-  flex:1;
+  min-width: 63%;
+}
+#decimal{
+  background-color: var(--third-color);
+  color:var(--secondary-color-darker);
+}
+#decimal:hover{
+  background-color: var(--secondary-color);
+  color:var(--third-color);
 }
 #clear:hover{
   background-color: rgb(252, 6, 6);

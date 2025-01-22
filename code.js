@@ -6,6 +6,7 @@ let numbers = {
     second: null,
     result: null, 
     operation: undefined, // store the operation after key press here
+    decimal:false,
 }
 
 // DOM buttons and handlers // 
@@ -20,10 +21,12 @@ operators.forEach(operator=>operator.addEventListener('click', ()=>  assignOpera
 const equalButton = document.querySelector('#equals');
 equalButton.addEventListener('click',()=> equalResult(numbers)); // handle equal button 
 const clearAll = document.querySelector('#clear');
-clearAll.addEventListener('click',()=>{
+clearAll.addEventListener('click',()=>{ // clear the calculator data
     numbers=createObject();
     displayNumbers(numbers);
 });
+const dotButton = document.querySelector('#decimal');
+dotButton.addEventListener('click',()=>addDecimal(numbers));
 
 // Functions that handle operands // 
 
@@ -35,7 +38,8 @@ function createObject(){
         first : null,
         second: null,
         result: null, 
-        operation: undefined, // store the operation after key press here
+        operation: undefined,
+        decimal:false, // store the operation after key press here
     }
 }
 
@@ -44,7 +48,7 @@ function processParsedNumber(numbers, value){
     // this value will be later parsed into an integer and assigned to a calculation variable
     if(numbers.displayed.length<6)
         numbers.displayed+=value;
-
+    numbers.decimal=false;
     displayNumbers(numbers);    
 }
 
@@ -62,6 +66,18 @@ function assignValue(numbers){
     }
 
     numbers.displayed=''; // clear the variable that stores display number for the next input
+}
+
+function addDecimal(numbers){
+    if(!numbers.decimal){
+        if(numbers.displayed==='')
+            numbers.displayed='0.';
+        else{
+            numbers.displayed+='.';
+        }
+        numbers.decimal=true;
+    }
+    displayNumbers(numbers);
 }
 
 // Functions that handle operators // 
@@ -153,6 +169,7 @@ function resetValues(numbers){
     numbers.first=null;
     numbers.operation=undefined;
     numbers.resultDisplayed='';
+    numbers.decimal=false;
 }
 
 // Functions that handle display //
