@@ -23,6 +23,17 @@ html {
   }
 
   /*Page Css*/
+  :root{
+    --main-color:#f19e0e;
+    --secondary-color:#a96f0a;
+    --secondary-color-darker:#764e07;
+    --third-color:#ffcd12;
+    --complementary-color:#0e61f1;
+    --triadic-color:#0ef19e;
+    --triadic-delete:#f10e61;
+    --triadic-equals:#61f10e;
+    --border-radius:15px;
+  }
 
   body{
     display: flex;
@@ -34,12 +45,11 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: aquamarine;
+    background-color: var(--secondary-color);
     padding:2rem;
 }
   section{
     flex:1;
-    background-color: blanchedalmond;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,20 +60,31 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: red;
-    padding:20px;
+    background-color: var(--main-color);
+    border-radius: var(--border-radius);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, 
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, 
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, 
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding:1.5rem 1rem;
+    max-width: 35rem;
 }
 
 .result-box{
-    background-color: rgb(26, 23, 23);
-    color:white;
-    padding:10px;
-    height: 50px;
-    width: 100%;
+    background-color:var(--complementary-color);
+    border-radius: var(--border-radius);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color:var(--triadic-color);
+    padding:1rem;
+    height: 5rem;
+    margin-top:1rem;
+    min-width: 90%;
     display: flex;
     flex-direction: column;
     align-items:flex-end;
     justify-content: center;
+    font-size:3rem;
 }
 
 .keys-box{
@@ -71,33 +92,49 @@ html {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    flex:0, 0 , 200px;
-    gap:20px;
-    background-color: orange;
-    padding:20px;
+    gap:1rem;
+    padding:1rem;
 }
-
+.keys-box > *:hover{
+  cursor: pointer;
+  background-color: var(--third-color);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
+  color:var(--secondary-color);
+}
   .key,
   .operator,
   #equals,
   #clear{
-    padding:10px;
-    background-color: rgb(26, 23, 23);
-    color:lightgoldenrodyellow;
+    background-color:var(--secondary-color-darker);
+    border-radius: var(--border-radius);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color:white;
     flex-shrink: 0;
     flex-grow: 0;
     flex-basis: 30%;
-    text-align: center;
+    padding:0.5rem;
+    font-size:3rem;
     font-weight: bold;
-    font-size:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
 .result{
-  color:orange;
-  font-size: 24px;
+  color:var(--main-color);
+  font-size: 3.3rem;
 }
 
 #clear{
-  background-color: red;
+  background-color:rgb(189, 10, 10);
   flex:1;
+}
+#clear:hover{
+  background-color: rgb(252, 6, 6);
+}
+#equals{
+  background-color: #008000;
+}
+#equals:hover{
+  background-color: #05b805;
 }

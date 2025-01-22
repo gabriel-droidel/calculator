@@ -73,6 +73,7 @@ function assignOperator(numbers,value){
     numbers.operation=value;
     numbers.displayed=''; // clear number input
     displayNumbers(numbers); // update display with clear input
+    displayResult(numbers);
 }
 
 function equalResult(numbers){
