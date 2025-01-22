@@ -20,8 +20,24 @@ operators.forEach(operator=>operator.addEventListener('click', ()=>  assignOpera
 const equalButton = document.querySelector('#equals');
 equalButton.addEventListener('click',()=> equalResult(numbers)); // handle equal button 
 const clearAll = document.querySelector('#clear');
+clearAll.addEventListener('click',()=>{
+    numbers=createObject();
+    displayNumbers(numbers);
+});
 
 // Functions that handle operands // 
+
+function createObject(){
+    // create the object that stores all calculator data
+    return {  
+        displayed: '', // temporary place where the numbers from the calculator get stored on each key press
+        resultDisplayed:'', // store result to be displayed
+        first : null,
+        second: null,
+        result: null, 
+        operation: undefined, // store the operation after key press here
+    }
+}
 
 function processParsedNumber(numbers, value){
     // get value on key press and add it to the number at the end

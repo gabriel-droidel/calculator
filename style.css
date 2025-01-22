@@ -79,7 +79,8 @@ html {
 
   .key,
   .operator,
-  #equals{
+  #equals,
+  #clear{
     padding:10px;
     background-color: rgb(26, 23, 23);
     color:lightgoldenrodyellow;
@@ -94,4 +95,9 @@ html {
 .result{
   color:orange;
   font-size: 24px;
+}
+
+#clear{
+  background-color: red;
+  flex:1;
 }
