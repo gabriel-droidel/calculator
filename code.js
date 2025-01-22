@@ -127,7 +127,7 @@ function subtract(firstNumber, secondNumber){
 
 function multiply(firstNumber, secondNumber){
     // return multiplication result
-    return (firstNumber * secondNumber).toFixed(2);
+    return +(firstNumber * secondNumber).toFixed(2);
 }
 
 function divide(firstNumber, secondNumber,numbers){
@@ -135,7 +135,7 @@ function divide(firstNumber, secondNumber,numbers){
     if(secondNumber===0){ // handle division by 0
         return 'ERROR';
     }else 
-        return (firstNumber / secondNumber).toFixed(2);
+        return +(firstNumber / secondNumber).toFixed(2);
 }
 
 // Functions that handle calculations // 
@@ -154,8 +154,6 @@ function evaluate(numbers){
         displayResult(numbers); 
         resetValues(numbers); 
     }
-    console.log(`evaluate`);
-    console.log(numbers);
 }
 
 function processCalculation(numbers){
