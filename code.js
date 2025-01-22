@@ -14,7 +14,11 @@ let numbers = {
 // Calculator keys //
 const keysBox = document.querySelector('.keys-box'); // container of the calculator keys
 const keys = [...keysBox.querySelectorAll('.key')]; // get the keys from 0-9 and store in an array
-keys.forEach(key=>key.addEventListener('click', ()=>processParsedNumber(numbers, key.textContent))); // assign value of the key inside the data object
+keys.forEach(key=>key.addEventListener('click', ()=> processParsedNumber(numbers, key.textContent))); // assign value of the key inside the data object
+
+// Keyboard support
+keysBox.addEventListener('keydown', (event)=> processParsedNumber(numbers, event.key));
+
 // Calculator operators //
 const operators = [...keysBox.querySelectorAll('.operator')]; // get the operator - + / * and store in an array
 operators.forEach(operator=>operator.addEventListener('click', ()=>  assignOperator(numbers,operator.textContent))); // assign operator inside the data object
@@ -61,7 +65,7 @@ function assignValue(numbers){
     if(numbers.displayed!=''){ // check if the input is empty
         if(numbers.result!=null && numbers.operation){ // if there is a second number and operation
             numbers.first=+numbers.displayed;
-        } else if(numbers.operation)
+        } else if(numbers.operation&&numbers.first!=null)
                 numbers.second=+numbers.displayed; // for already chosen operator, the second number gets the value
             else 
                 numbers.first=+numbers.displayed;

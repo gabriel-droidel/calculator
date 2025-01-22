@@ -150,6 +150,7 @@ html {
   background-color: #05b805;
 }
 #backspace{
+  background-color: var(--secondary-color);
   text-align: center;
 }
 #backspace:hover{
