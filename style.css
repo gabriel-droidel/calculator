@@ -107,7 +107,8 @@ html {
   .operator,
   #equals,
   #clear,
-  #decimal{
+  #decimal,
+  #backspace{
     background-color:var(--secondary-color-darker);
     border-radius: var(--border-radius);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -130,7 +131,6 @@ html {
 
 #clear{
   background-color:rgb(189, 10, 10);
-  min-width: 63%;
 }
 #decimal{
   background-color: var(--third-color);
@@ -148,4 +148,10 @@ html {
 }
 #equals:hover{
   background-color: #05b805;
+}
+#backspace{
+  text-align: center;
+}
+#backspace:hover{
+  background-color: rgb(252, 6, 6);
 }

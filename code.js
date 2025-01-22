@@ -27,6 +27,8 @@ clearAll.addEventListener('click',()=>{ // clear the calculator data
 });
 const dotButton = document.querySelector('#decimal');
 dotButton.addEventListener('click',()=>addDecimal(numbers));
+const backspaceButton = document.querySelector('#backspace');
+backspaceButton.addEventListener('click',()=>undoInput(numbers));
 
 // Functions that handle operands // 
 
@@ -80,6 +82,14 @@ function addDecimal(numbers){
     displayNumbers(numbers);
 }
 
+function undoInput(numbers){
+    if(numbers.displayed!==' '){
+        const separatedDisplay = numbers.displayed.split('');
+        separatedDisplay.pop();
+        numbers.displayed=separatedDisplay.join('');
+    }
+   displayNumbers(numbers);
+}
 // Functions that handle operators // 
 
 function assignOperator(numbers,value){
