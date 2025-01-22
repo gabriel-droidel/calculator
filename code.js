@@ -121,7 +121,7 @@ function subtract(firstNumber, secondNumber){
 
 function multiply(firstNumber, secondNumber){
     // return multiplication result
-    return firstNumber * secondNumber;
+    return (firstNumber * secondNumber).toFixed(2);
 }
 
 function divide(firstNumber, secondNumber,numbers){
