@@ -17,7 +17,7 @@ const keys = [...keysBox.querySelectorAll('.key')]; // get the keys from 0-9 and
 keys.forEach(key=>key.addEventListener('click', ()=> processParsedNumber(numbers, key.textContent))); // assign value of the key inside the data object
 
 // Keyboard support
-keysBox.addEventListener('keydown', (event)=> processParsedNumber(numbers, event.key));
+document.body.addEventListener('keydown', (event)=> handleKeyboardInput(numbers, event.key));
 
 // Calculator operators //
 const operators = [...keysBox.querySelectorAll('.operator')]; // get the operator - + / * and store in an array
@@ -75,6 +75,7 @@ function assignValue(numbers){
 }
 
 function addDecimal(numbers){
+    // adds decimal if there is not one already. 
     if(!numbers.decimal){
         if(numbers.displayed==='')
             numbers.displayed='0.';
@@ -87,7 +88,8 @@ function addDecimal(numbers){
 }
 
 function undoInput(numbers){
-    if(numbers.displayed!==' '){
+    // removes the last input if possible else clears the input display 
+    if(numbers.displayed!==''){
         const separatedDisplay = numbers.displayed.split('');
         separatedDisplay.pop();
         numbers.displayed=separatedDisplay.join('');
@@ -189,14 +191,33 @@ function resetValues(numbers){
 // Functions that handle display //
 
 function displayNumbers(numbers){
+    // displays input values in real time on the calculator
     const resultBox = document.querySelector('.result-box'); // div where result will be displayed
     resultBox.classList.remove('result');
     resultBox.textContent=numbers.displayed;
 }
 
 function displayResult(numbers){
+    // displays result on the calculator
     const resultBox = document.querySelector('.result-box'); // div where result will be displayed
     resultBox.classList.add('result');
     resultBox.textContent=numbers.resultDisplayed;
 }
 
+function handleKeyboardInput(numbers, inputKey){
+    // gets input key from keyboard and processes it depending on the value
+    const charTyped = inputKey;
+    const onlyNumbers =  /\d/g;
+    const onlyOperator = /^(\+|-|\*|\/|)$/;
+    
+    if(charTyped.match(onlyNumbers))
+        processParsedNumber(numbers, inputKey)
+    else if(charTyped.match(onlyOperator))
+        assignOperator(numbers,charTyped);
+    else if (charTyped==='='||charTyped==='Enter')
+        equalResult(numbers);
+    else if (charTyped==='Backspace')
+        undoInput(numbers);
+    else if(charTyped==='.')
+        addDecimal(numbers);
+}
