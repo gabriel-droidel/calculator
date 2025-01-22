@@ -38,7 +38,7 @@ html {
     --triadic-equals:#61f10e;
     --border-radius:15px;
   }
-
+ 
   body{
     display: flex;
     flex-direction: column;
@@ -166,4 +166,9 @@ html {
 }
 #backspace:hover{
   background-color: rgb(252, 6, 6);
+}
+@media only screen and (max-width: 400px) {
+  header {
+    display: none;
+  }
 }
