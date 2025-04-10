@@ -1,10 +1,19 @@
-# THE ODIN PROJECT CALCULATOR
+# 🧮 Calculator
 
-(The Odin Project Calculator)[https://www.theodinproject.com/lessons/foundations-calculator]
+A simple calculator web app built with HTML, CSS, and JavaScript as part of [The Odin Project](https://www.theodinproject.com/lessons/foundations-calculator). It performs basic arithmetic operations and includes keyboard support.
 
-## Functionalities:
+🔗 [Live Demo](https://gabriel-droidel.github.io/calculator/)
 
-- Calculates basic operations
-- Handles division by 0 
-- Can use decimal for input
-- Keyboard input supported
+## ✨ Features
+
+- Basic operations: addition, subtraction, multiplication, division
+- Decimal input support
+- Keyboard input support
+- Handles division by zero
+- Responsive design
+
+## 🛠️ Built With
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
